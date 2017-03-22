@@ -485,8 +485,8 @@ public func userDidSignificantEvent(_ shouldPrompt: @escaping ArmchairShouldProm
  * for instance, in the case of some special event in your app.
  */
 
-public func showPrompt() {
-    Manager.defaultManager.showPrompt()
+public func showPrompt() -> Bool {
+    return Manager.defaultManager.showPrompt()
 }
 
 /*
@@ -1089,9 +1089,12 @@ open class Manager : ArmchairManager {
         }
     }
     
-    fileprivate func showPrompt() {
+    fileprivate func showPrompt() -> Bool {
         if !appID.isEmpty && connectedToNetwork() && !userHasDeclinedToRate() && !userHasRatedCurrentVersion() {
             showRatingAlert()
+            return true
+        } else {
+            return false
         }
     }
     
