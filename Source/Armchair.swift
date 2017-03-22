@@ -1171,7 +1171,7 @@ open class Manager : ArmchairManager {
         return true
     }
     
-    fileprivate func userHasDeclinedToRate() -> Bool {
+     func userHasDeclinedToRate() -> Bool {
         if let declined = userDefaultsObject?.boolForKey(keyForArmchairKeyType(ArmchairKey.DeclinedToRate)) {
             return declined
         } else {
@@ -1179,7 +1179,7 @@ open class Manager : ArmchairManager {
         }
     }
     
-    fileprivate func userHasRatedCurrentVersion() -> Bool {
+    func userHasRatedCurrentVersion() -> Bool {
         if let ratedCurrentVersion = userDefaultsObject?.boolForKey(keyForArmchairKeyType(ArmchairKey.RatedCurrentVersion)) {
             return ratedCurrentVersion
         } else {
@@ -1621,7 +1621,7 @@ open class Manager : ArmchairManager {
     // MARK: -
     // MARK: Internet Connectivity
     
-    private func connectedToNetwork() -> Bool {
+    func connectedToNetwork() -> Bool {
         var zeroAddress = sockaddr_in()
         zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
         zeroAddress.sin_family = sa_family_t(AF_INET)
